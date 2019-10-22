@@ -14,6 +14,8 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
+    // Creating a fuction called isArray, one input value, returns true if the value is an Array, false if otherwise
+    return Array.isArray(value);
     
     
     
@@ -31,9 +33,12 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    // Creating a function called is Object, one input, returns true if value is an Object intended as a collection, false if not
+if (typeof (value) === 'object' && value !== null && value instanceof Date !== true && Array.isArray(value) !== true) {
+    return true;
+} else {
+    return false;
+} 
     
     // YOUR CODE ABOVE HERE //
 }
@@ -46,6 +51,12 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
+    // Creating a function called isCollection, one input, returns a value of true if value is an array or object
+    if (Array.isArray(value) === true || value instanceof Object === true && value instanceof Date !== true && value !== null) {
+        return true;
+    } else {
+            return false;
+        }
     
     
     
@@ -74,10 +85,33 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+    // Create a function called typeOf, one input, that returns the type of the value as a string
+    // Use if statement
+    if (typeof value === 'string') {
+        return 'string';
+    } else if (Array.isArray(value)) {
+        return 'array';
+    } else if (isObject(value)) {
+        return 'object';        
+    } else if (typeof value === 'undefined') {
+        return 'undefined';        
+    } else if (typeof value === 'number') {
+        return 'number';
+    } else if (typeof value === 'boolean') {
+        return 'boolean';
+    } else if (value === null) {
+        return 'null';
+    } else if (typeof value === 'function') {
+        return 'function';
+    } else if (value instanceof Date) {
+        return 'date';
+    } else {
+        return 'error';
+    }
+
+  
     
-    
-    
-    
+     
     // YOUR CODE ABOVE HERE //
 }
 

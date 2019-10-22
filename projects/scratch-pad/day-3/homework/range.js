@@ -1,4 +1,4 @@
-// #!/usr/bin/env node
+ // #!/usr/bin/env node
 
 'use strict';
 
@@ -23,6 +23,23 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+    // create and array to collect output from range function
+    // create a while loop that loops through start number and end number and pushes numbers into array
+    var myArray = [];
+   if (start < end) { 
+    while (start <= end) {
+        myArray.push(start++);
+    }
+    return myArray;   
+    } else {
+
+    // if start > end, return the range in reverse
+    while (start >= end) {
+        myArray.push(start--);
+    }
+    return myArray;
+    }
+
     
     
     
