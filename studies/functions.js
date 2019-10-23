@@ -91,16 +91,19 @@ function name() {
   * in parameters too. 
   */
  
- var numOne = 6;
- function number(numTwo) {
-     return numOne + numTwo;
- }
+function displayName() {
+    var name= 'Caron Garel'
+    function fullName() {
+          console.log(name);      
+    } fullName();
+} 
+display(name); 
+
+/* fullName is the inner function (closure); its able to grab the variable name from the 
+ * parent function.
+*/
  
- number(5);
- 
- /* because numOne is in the global/parent scope, it can be acessed by function number
- * 
- */   
+
            
            
            

@@ -158,10 +158,38 @@ console.log(1/0); // returns infinity
 
 console.log(-1/0); // returns -infinity
 
-/* Primitive (Simple) & Complex Data Types -
- * 
- * 
+// Primitive (Simple) & Complex Data Types //
+/* Primitive data types are immutable, there is no way to change a value once its created; while
+ * complex data tpes are mutable and the value can be changed once created. Primitive data types
+ * are compared by copy while complex data types are compared by reference.
+ */
+
+// Function by Copy vs by Reference //
+/* Primitive values are copied by value, meaning that any changes that you make to the local 
+ * variables inside the function does not affect the arguments that you passed in. In other words,
+ * the changes to the arguments are not reflected outside the function. Complex data
+ * types are copied by reference. A function is called by directly passing the reference/address
+ * of the variable as the argument. Changing the argument inside the function affect the variable
+ * passed from outside the function. 
  */
 
 // Example //
 
+var a = 5;
+var b = 6;
+
+function add(b) {
+    a = b + 1;
+}
+ 
+ console.log(add(b));   // prints 7
+ console.log(a); // prints 5, the value of a does not change because of the function - only a copy is taken
+ 
+
+var myArray = ['Hello', 'Caron!'];
+
+function remove(array) {
+    myArray.push;  
+} 
+remove(myArray);              
+console.log(remove(myArray)); // prints myArray ['Hello'], value of myArray is changed by the function

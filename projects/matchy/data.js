@@ -126,15 +126,22 @@ var friends = [];
 // Write a function called `getRandom` that takes our `animals` array and returns the `index` of a random element
 // using `Math.random`
 
-function getRandom(animals) {
-    return Math.random(animals);
+function getRandom() {
+     return Math.floor(Math.random() * Math.floor(friends.length));
 }
 
+// Using a random index from this function that you just created, 
+// get a random animal and add its `name` to `friends`.
 
+cat.friends = friends;
 
+// console log friends
 
+console.log(friends);
 
-
+// add `friends` as a **property** named `friends` on one of the animals in `animals`
+   
+animals[0].friends = friends;
 
 
 
