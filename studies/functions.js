@@ -11,8 +11,8 @@
 function multiply(a, b) {            // function declaration  
     return a*b;
 }
-multiply(3,4);   // function call
-console.log(multiply); // returns 12
+multiply(3, 4);   // function call
+console.log(multiply(3, 4)); // returns 12
 
 // 2. Function Parameters/Arguments //
 /* Parameters optionally take parameters/arguments. Parameters are just placeholders for 
@@ -25,7 +25,7 @@ function sum(a, b) {            /* function parameters a and b, placeholders for
     return a + b;                * be entered as arguments in function call.
 }                               */    
 sum(3,4);                       // function arguments 3, 4 - numbers that will be used to run code.
-console.log(sum); // returns 7
+console.log(sum(3, 4)); // returns 7
 
 // 3. Syntax for a Named Function //
 /* One of the benefits of creating a named function is that in case we encounterd an error, the
@@ -42,7 +42,7 @@ function divide(a, b) {           // named function => function given the name d
     return a/b;
 }
 divide(8,4);   
-console.log(divide); // returns 2
+console.log(divide(8, 4)); // returns 2
  
  // 4. Assigning Functions to Variables //
  /* A function can be stored inside of a variable. Once stored in a variable, the variable
@@ -58,13 +58,23 @@ console.log(divide); // returns 2
  
  // 5. Specifying Inputs/Outputs //
 /* Parameters are used to specify inputs.The return statement inside of the function body
- * determines the function output.
+ * determines the function output. A function does not have to include parameters or outputs. 
  */
 // Example //
 
-var e = function (num1, num2) {return num1 - num2};
-var f = e(5, 2);
-console.log(f);
+function greeting() {
+    console.log('How are you doing today?')
+}
+greeting();          // prints How are you doing today? 
+
+
+function add(a, b) {
+    
+    console.log(a + b);
+}
+add(3, 4);                     // prints 7                     
+
+
 
 // 6. Function Scope //
 /* When you define a variable inside of a code block (such as functions) it can only be called
@@ -81,8 +91,8 @@ function name() {
     var firstName = "Caron";
     console.log(firstName);     
 }
- name();      // inside scope, returns Caron
- console.log(firstName)    // outside scope, returns error - firstName is not defined
+ name();      // inside scope, prints Caron
+ console.log(firstName)    // outside scope, prints error - firstName is not defined
  
  // Closures //
  /* A function with access to the parent scope, even after the parent function has closed. 
@@ -97,7 +107,7 @@ function displayName() {
           console.log(name);      
     } fullName();
 } 
-display(name); 
+displayName(name); 
 
 /* fullName is the inner function (closure); its able to grab the variable name from the 
  * parent function.

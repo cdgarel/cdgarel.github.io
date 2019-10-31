@@ -1,6 +1,12 @@
-/*
- * DATA TYPES
- *
+// DATA TYPES //
+
+/* Data types are types of data that can be used and manipulated in a program. To be able
+ * to operate on variables, it is important to know something about the type. Each data
+ * type will be treated differently by JavaScript. The specific data type that you use
+ * determines which values you can assign to it and what you can do to it. In the below 
+ * sections, we go over the different data types used in JavaScript.
+*/
+
  // 1. Number //
  /* A number is a simple data type. It can be any numerical value: positive, negative, or
   * with decimals. Like regular numbers, we can add, subtract, divide, and multiply to create
@@ -23,7 +29,7 @@
  */
  // Example //
  
- var firstName;  // assigns the value of Caron to firstName
+ var firstName = 'Caron';  // assigns the value of Caron to firstName
  
  var lastName = 'Garel';   // assigns the value of Garel to lastName
  
@@ -33,6 +39,11 @@
   * assigned using the other variables above as shown below 
  */  
  fullName = firstName + lastName;   // assigns the value Caron Garel to fullName
+ 
+ console.log(firstName[0]); 
+ 
+ /* uses bracket notation to access the character at index 0 in the firstName
+  * variable. Prints 'C' to the console.
  
  // 3. Boolean //
  /* A simple data type that consists of a true or false value. They are typically used in 
@@ -48,12 +59,14 @@ myBool = false; // reassigns the value of false to myBool
 myBool = 1 === 1; // assigns teh value of true to my Bool by comparing whether 1 is equal to 1
 
 // 4. Array //
-/* A complex data type that consists of a collection of dats. Arrays are used to store multiple
+/* A complex data type that consists of a collection of data. Arrays are used to store multiple
  * data types. Every value in an array has an index (the number position of the value in the array).
- * The index starts with starts with 0, the the first value in the list has an index of 0, the second
+ * The index starts with 0. The first value in the list has an index of 0, the second
  * has an index of 1, and so on. Arrays can contain references to any other data type (strings, 
- * numbers, booleans, other arrays, objects, and functions). Arrays allow you to group values togethr
- * so that they can be used as one. 
+ * numbers, booleans, other arrays, objects, and functions). Arrays allow you to group values together
+ * so that they can be used as one. The maximum length of an array is bound by a 32 bit integer,
+ * aroung 4.3 billion elements. Arrays can hold a huge amount of data all in one place as a 
+ * collection.
 */
 // Examples //
 
@@ -67,6 +80,10 @@ myArray = ['a', 'b', 'c'];
 
 /* the array myArray is assigned string values a, b, and c. 'a' is at index 0, 'b' index 1, and
 * 'c' 2. Each value/value set is separated by a comma.
+
+console.log(myArray[1]);  // prints 'b', the value in myArray at index 1
+
+
 
 // 5. Object // 
 /* A complex data type used to store data. It is usually a collection of data relating to a 
@@ -95,23 +112,33 @@ myObject = {
    the assignment ends with curly braces and a semi-colon. 
 */ 
 
+let myPets = {
+    cat: 'meow',
+    dog: 'woof'
+};
+
+let sound = myPets.dog;
+console.log(sound); // prints woof, sound is assigned the value in the myPets object, within key dog. 
+
+
 // 6. Function //
-/* Reusable blocks of code that accept inputs, process thoes inputs, and returns a new data value.
+/* Reusable blocks of code that accept inputs, processes those inputs, and returns a new data value.
  * A function declaration consists of the keyword function followed by the function name, 
  * parameters/arguments, function body (where the code runs), and a return statement. The 
  * code to be executed by the function is placed in curly braces.
  */
 // Example //
 
-var a = 1; // assigns a value of 1 to a
-var b = 3; // assigns a value of 3 to b
 
 function add(a, b) {
-    return a + b;
+    console.log(a + b);
 }
 
+add(3, 4);
+
+
 /* calls the function add, with two parameters (a and b), function body returns the value of a + b.
- * returns the value of 4.
+ * returns the value of 7.
 */
 // Undefined // 
 /* Declaring a variable without assigning it a value will give it a value of undefined. It can also
@@ -165,13 +192,13 @@ console.log(-1/0); // returns -infinity
  */
 
 // Function by Copy vs by Reference //
-/* Primitive values are copied by value, meaning that any changes that you make to the local 
- * variables inside the function does not affect the arguments that you passed in. In other words,
- * the changes to the arguments are not reflected outside the function. Complex data
- * types are copied by reference. A function is called by directly passing the reference/address
- * of the variable as the argument. Changing the argument inside the function affect the variable
- * passed from outside the function. 
- */
+/* Primitive values are copied by value, meaning that when we assign these variables to other 
+ * variables using (=), we copy the value to the new variable. Each variable is seperate and has
+ * its own value since the values were copied. Changing one does not change the other.  
+ * Complex data  types are copied by reference. The reference points to the objects location in memory.
+ * The variables dont actually contain the value.  
+ *  
+*/
 
 // Example //
 
@@ -188,8 +215,15 @@ function add(b) {
 
 var myArray = ['Hello', 'Caron!'];
 
-function remove(array) {
-    myArray.push;  
+function hello(array) {
+    console.log(array[0]);
 } 
-remove(myArray);              
-console.log(remove(myArray)); // prints myArray ['Hello'], value of myArray is changed by the function
+hello(myArray);      // prints Hello, accesses the array by pointing to the index, it location in memory
+
+
+
+
+
+
+
+

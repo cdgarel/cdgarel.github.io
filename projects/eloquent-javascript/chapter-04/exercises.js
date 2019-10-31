@@ -1,56 +1,117 @@
 ////////////////////////////////////////////////////////////////////////////////
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// 3 parameters: start, end, step
+// returns an array that includes all the numbers from start to end
+// step values 
 
-function range() {
-
+function range(start, end, step = 1) {
+    let myArray = [];
+    if (start === end || step < 0) {
+      return myArray = [];
+    }
+    if (step > 0) {
+      for (let i = start; i <= end; i += step) {
+        myArray.push(i);
+      }
+    } else {
+    for (let i = end; i >= start; i += step) {
+        myArray.push(i);
+       } 
+    }
+      return myArray;
 }
-
+  
 ////////////////////////////////////////////////////////////////////////////////
-// sum /////////////////////////////////////////////////////////////////////////
+// sum ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// parameter 1, an array, function takes array of numbers and return sum
 
-function sum() {
-
+function sum(array) {
+    let total = 0
+    if (array.length === 0) {
+      return 0;
+    } else {
+    for (let i = 0; i < array.length - 1; i++) {
+       total = array.reduce(add);
+    }
+    return total;
+} 
+ function add(num1, num2) {
+    return num1 + num2;
+}    
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// 1 parameter, an array, produces a new array that has the same elements in inverse order
+// Cannot use standard reverse method
 
-function reverseArray() {
-
+function reverseArray(array) {
+    let newArray = [];
+    if (array.length === 0) {
+      return newArray = [];
+    } 
+    for (var i = array.length - 1; i >= 0; i--) {
+       newArray.push(array[i]);
+    } 
+    return newArray;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// 1 parameter, an array, modify array given by reversing its elements
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {
+  if (array.length === 0) {
+    return array = [];
+  }
+     for (let i = 0; i <= Math.floor(array.length - 1) / 2; i++) {
+       let temp = array[i];
+       array[i] = array[array.length - 1 -i];
+       array[array.length - 1 - i] = temp;
+       
+    }
+    
+    return array;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function arrayToList() {
-
+// 1 parameter, an array, creates a list using elements in array
+// undefined to equal object list
+function arrayToList(array) {
+let list = null;
+     if (array.length === 0) {
+       return list = {};
+     }
+     for (let i = array.length - 1; i >= 0; i--) {
+      list = {value: array[i], rest: list};
+     }
+     return list;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
-
-}
+function listToArray(list) {
+  let array = [];
+  for (let node = list; node; node = node.rest) {
+    array.push(node.value);
+  }
+  return array;
+} 
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
+function prepend(element, list) {
+  return {value: element, rest: list};
 
 }
 
@@ -58,15 +119,30 @@ function prepend() {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, num) {
+  if (!list) return undefined;
+  else if (num == 0) return list.value;
+  else return nth(list.rest, num - 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// 2 parameters, if value 1 and value 2 have the same property return true, false if not
+// Or are the same value
 
-function deepEqual() {
+function deepEqual(x, y) {
+ 
+ if (x === y) return true;
+ if (typeof x !== 'object' || x == null || typeof y !== 'object' || y == null)
+   return false;
+ let xKeys = Object.keys(x);
+ let yKeys = Object.keys(y);
+ if (xKeys.length !== yKeys.length) return false;
+ for (let key of xKeys) {
+   if (!yKeys.includes(key) || !deepEqual(x[key], y[key])) return false;
+ }
+    return true;
 
 }
 

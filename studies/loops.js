@@ -1,4 +1,9 @@
 // Loops //
+/* Loops are a programming tool that repeats a set of insturctions until a specified conditon ,
+ * called a stopping condition is reached. They allow us to tell computers to repeat a given
+ * block of code on its own. 
+*/
+
 // 1. While, For, & For In Loops //
 /* The While loop loops through a block of code while a specified condition is true. An 
  * incrementer (i++) is used to increase the value used in the condition. The i++ is placed
@@ -8,43 +13,55 @@
  *                            code block;
  *                            i++
  *                      }
- * 
- * The for loop loops through a block of code a number of times. It consists of a starting 
+ *
+*/
+
+// Example - While Loop // 
+    var a = 0;
+    while (a < 4) {
+        console.log('The number is ' + a);
+        a++;
+    }                   
+ 
+// prints 'The number is 0'
+//         'The number is 1'
+//         'The number is 2'
+//         'The number is 3'
+
+
+/* The for loop loops through a block of code a number of times. It consists of a starting 
  * condition, a stopping condition, an incrementor, (all listed in the condition, separated 
  * by a semi colon), and the code block.
  *          Syntax:     for (var i = 0, i < 5, i++)   {
  *                              code block;
  *                      }  
  * 
- * The for in loop loops through the property of an object. It consists of the variable representing 
+ * The for in loop loops through the properties of an object. It consists of the variable representing 
  * a key in the object and the object to be interated over, and the code block.
  *          Syntax:     for (var key in object) {
  *                           code block;
  *                      }
  */
-// Loops //
+// 2. Looping Forward and Backward //
 /* All loops do the same thing in that they repeat an action some number of times. Each type offers
  * different ways to determine the start and end points of the loop. Depending on the situation,
  * one type of loop my be better to use than the others. All loops will run until a condition is met.
  */
 // Examples // 
 
-for (var i = 0; i <= 5; i++) {
+for (var i = 0; i <= 5; i++) {              // prints 0, 2, 2, 3, 4, 5
     console.log(i);
   
   }
     
-/* starts at 0, and loops through until it reaches a value of 5, prints 0, 1, 2, 3, 4, 5
-*/
 
-for (var j = 4; i > 0; i--) {
-    console.log(i);;
-  
-  }
+for (var j = 4; i > 0; i--) {               // prints 4, 3, 2, 1
+    console.log(i);
+;
+}
 
                                       
-/* Starts at 4, and loops through until it reaches 0, prints 4, 3, 2, 1
-*/
+
 
 // Looping Over An Array //
 /* Using a for loop, the .length property can be used as a starting or stopping condition when 

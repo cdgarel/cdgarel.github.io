@@ -127,43 +127,63 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
 function isFriend(name, object) {
-    if(Array.isArray(object.friends) === true) {
-    for (let i = 0; i < object.friends.length; i++)
-        if (object.friends[i] === name) {
+if (Array.isArray(object.friends)) {
+    for(let i = 0; i < object.friends.length; i++) {
+        if(object.friends[i] === name) {
             return true;
+        }
     }
-} return false;
+}
+return false;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
-    let myArray = []
-    for (let i = 0; i < array.length - 1; i++) {
-        if (name !== array[i].friends) {
-            myArray.push(name);
+function nonFriends(name, arr){
+    var nameList = [];
+    var result = [];
+    var current = null;
+    for(var i=0; i<arr.length; i++){
+        if(name === arr[i].name){
+            current = arr[i];
+        }else{
+            nameList.push(arr[i].name);
         }
-    } return myArray;
-}
+    }
 
+    if(current === null){
+        return nameList;
+    }
+
+    for(var i=0; i<nameList.length; i++){
+        if(current.friends.indexOf(nameList[i]) == -1){
+            result.push(nameList[i]);
+        }
+    }
+
+    return result;
+
+}
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
-}
+  object[key] = value;
+  return object;
+}   
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+     for (let i = 0; i < array.length; i++) {
+         delete object[array[i]];
+     }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -171,7 +191,7 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    return array = [... new Set(array)];
 }
 
 //////////////////////////////////////////////////////////////////////

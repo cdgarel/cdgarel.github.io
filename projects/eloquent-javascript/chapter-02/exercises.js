@@ -35,20 +35,18 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 // create fuction drawChessboard that creates a string representing an 8 x 8 grid
 // using newline characters, use " " spaces and '#'
-function drawChessboard(num) {
+function drawChessboard(size){
+var board = "".repeat(size);
+for(var i = 0; i < size; i++){
+ for(var a = 0; a < size; a++){
+  board += (a % 2) == (i % 2) ? " " : "#";
+ }
+  board += "\n";
+}console.log(board);
+} 
+  
+   
     
-    let chessBoard = ''
-    for (let i = 0; i <= num; i++) {
-          for (let j = 0; j <= num; j++) {
-              if ((i + j) % 2 === 0) {
-                  chessBoard += ' ';
-              } else {
-                  chessBoard += '#';
-              }
-        } chessBoard += '\n';
-    } 
-    
-    } console.log(chessBoard);
     
 
 

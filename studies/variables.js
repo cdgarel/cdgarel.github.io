@@ -64,9 +64,9 @@ myName;
 console.log(myName);    // prints => undefined //
 var myName = 'Caron';
       
-var lastName;
+var lastName = 'Garel';
 console.log(lastName);    // prints Garel // 
-lastName = 'Garel';
+
       
 function hello(firstName) {
 console.log('Hello ' + firstName);  // prints Error

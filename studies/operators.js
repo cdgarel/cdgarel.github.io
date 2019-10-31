@@ -57,17 +57,17 @@ console.log(a); // decrement operator, prints 4
 
 var y = 5; 
 
-y === 8; // strictly equal, returns false
+y === 8; // strictly equal, resolves false
 
-y > 8; // greater than, returns false
+y > 8; // greater than, resolves false
 
-y < 8; // less than, returns true
+y < 8; // less than, resolves true
 
-y >= 8; // greater than or equal to, returns false
+y >= 8; // greater than or equal to, resolves false
 
-y <= 8; // less than or equal to, returns true
+y <= 8; // less than or equal to, resolves true
 
-y !== 8; // strictly not equal , returns true
+y !== 8; // strictly not equal , resolves true
 
 if (y === 5) {
     console.log('The number is 5');
@@ -100,7 +100,7 @@ if (num1 > 5 && num2 > 5) {
  }
      console.log('False');
      
- /* The condition above is true if either num1 or num2 is less than 5, prints 'True'
+ /* The condition above is true if either num1 or num2 is less than 5, prints 'False'
   */
  
  if (!(num1 === num2)) {
@@ -146,6 +146,8 @@ typeof [123]; // returns object
 
 // 6. Ternary Operator //
 /* Ternary Operator (?) assigns a value to a variable based on some condition.
+ * If the condition is true, the 1st statement will be executed. If the condition
+ * is false the 2nd statment will be executed.
  */
 // Example //
 
