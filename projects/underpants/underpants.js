@@ -377,11 +377,21 @@ _.pluck = function(array, prop) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 _.every = function(collection, func) {
-    _.each(function(e, i, a) {
-        if (!func(e, i, a)) {
-        return false;
-    }
-});
+  var value = true;
+  if(func === undefined){
+  _.each(collection, (element, index, collection) => {
+      if(!element){
+          value = false;
+      }
+  });
+} else {
+  _.each(collection, (element, index, collection) => {
+      if(!func(element, index, collection)){
+          value = false;
+      }
+  });
+}
+  return value;
 }
 
 
@@ -405,6 +415,24 @@ _.every = function(collection, func) {
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+_.some = function(collection, func){
+  var value = false;
+  if(func === undefined){
+  _.each(collection, (element, index, collection) => {
+      if(element){
+          value = true;
+      }
+  });
+} else {
+  _.each(collection, (element, index, collection) => {
+      if(func(element, index, collection)){
+          value = true;
+      }
+  });
+}
+  return value;
+}
+
 
 
 /** _.reduce
@@ -425,6 +453,14 @@ _.every = function(collection, func) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+_.reduce = function(array, func, seed){
+ let acc = seed === undefined ? 1 : seed;
+ 
+    for(let i=0;i<array.length;i++)
+    
+    acc = func(acc, array[i], i, array);
+    return acc;
+}
 
 
 /** _.extend
@@ -441,7 +477,14 @@ _.every = function(collection, func) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+_.extend = function(obj1,...object){
+    for(let i=0; i<object.length; i++){
+        for(let key in object[i]){
+            obj1[key] = object[i][key];
+     }
+   }
+   return obj1;
+};
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

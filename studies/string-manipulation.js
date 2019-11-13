@@ -29,8 +29,11 @@ console.log(weather); // prints The weather is nice today
 
 var string = 'My name is Caron';
 var newString = string.replace('Caron', 'Janese'); 
-console.log(newString);         // prints My name is Caron
+console.log(newString);         // prints My name is Ja'nese
+
 var state = 'Mississippi';
+console.log(state.toUpperCase()); // prints MISSISSIPPI
+console.log(state.toLowerCase()); // prints mississippi
 var sliceMethod = state.slice(0, 4);
 console.log(sliceMethod); // prints issippi
 

@@ -148,11 +148,11 @@ add(3, 4);
 */ 
 // Example //
  var x;
- console.log(x);   // returns "undefined"
+ console.log(x);   // logs "undefined"
  
  var x = 123;
  x = undefined;
- console.log(x);  // returns "undefined"
+ console.log(x);  // logs "undefined"
   
 // Example //
 
@@ -162,7 +162,7 @@ add(3, 4);
 // Example //
 
 var age = null;  // states that age is empty, has no value, or value is unknown
-console.log(age); // returns null
+console.log(age); // logs null
 
 // NAN //
 /* A global property of javascript that represents Not a Number. It indicates that a value is not
@@ -173,7 +173,7 @@ console.log(age); // returns null
 
 var pet = 'cat';
 var num = pet * 3;
-console.log(num);  // returns NAN
+console.log(num);  // logs NAN
 
 // Infinity & -Infinity //
 /* A global property in javascript, infinity is a numeric value representing positive Infinity. 
@@ -181,9 +181,9 @@ console.log(num);  // returns NAN
 */ 
 // Example
 
-console.log(1/0); // returns infinity
+console.log(1/0); // logs infinity
 
-console.log(-1/0); // returns -infinity
+console.log(-1/0); // logs -infinity
 
 // Primitive (Simple) & Complex Data Types //
 /* Primitive data types are immutable, there is no way to change a value once its created; while
@@ -202,23 +202,17 @@ console.log(-1/0); // returns -infinity
 
 // Example //
 
-var a = 5;
-var b = 6;
+var a = [1, 2, 3]
+var b = a;
 
-function add(b) {
-    a = b + 1;
-}
- 
- console.log(add(b));   // prints 7
- console.log(a); // prints 5, the value of a does not change because of the function - only a copy is taken
- 
+console.log(a) // prints 1, 2, 3
+console.log(b) // prints 1, 2, 3 - b contains a reference to the array a. 
 
-var myArray = ['Hello', 'Caron!'];
+a.push(4);
 
-function hello(array) {
-    console.log(array[0]);
-} 
-hello(myArray);      // prints Hello, accesses the array by pointing to the index, it location in memory
+console.log(a);  // prints 1, 2, 3, 4
+console.log(b); // prints 1, 2, 3, 4 - Since b is copy by reference, if we change a, b will also be altered. 
+
 
 
 
