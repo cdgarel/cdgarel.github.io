@@ -16,7 +16,7 @@ console.log(weather); // prints The weather is nice today
 /* Even though a string is a primitive value, string methods and properties are available to use
  * on them because JavaScript treats them like objects when executing methods and properties. Below
  * are some of the methods used.
- *     join method - joins strings together with the option of adding a seperator between the two words
+ *     concat method - joins two or more strings together
  *     slice method - extracts a part of the string and returns the extracted part in a new string
  *                    uses 2 parameters - start position, end position
  *     toUpperCase() - string is converted to upper case
@@ -37,8 +37,13 @@ console.log(state.toLowerCase()); // prints mississippi
 var sliceMethod = state.slice(0, 4);
 console.log(sliceMethod); // prints issippi
 
-console.log(state.toUpperCase()); // prints MISSISSIPPI
 
 var letters = "abcde";
 console.log(letters.split("")); // prints an array of letters [a, b, c, d, e] 
 
+
+var string1 = 'Hello';
+var string2 = 'World';
+
+var greeting = string1.concat(string2);
+console.log(greeting); // prints (Hello World)
